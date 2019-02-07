@@ -1,4 +1,4 @@
-package binarylei.servlet.web;
+package com.github.binarylei.servlet.web;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;

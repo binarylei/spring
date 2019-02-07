@@ -14,7 +14,7 @@
     <modules>
         <module>servlet-3</module>
         <module>servlet-spring-boot</module>
+        <module>servlet-spring-war</module>
     </modules>
-
 
 </project>
