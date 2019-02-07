@@ -1,0 +1,23 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="company1" autowire="byName" class="org.springframework.beans.factory.di.BeanFactoryDITest$Company"/>
+    <bean id="company2" autowire="byType" class="org.springframework.beans.factory.di.BeanFactoryDITest$Company"/>
+    <bean id="company3" autowire="no" class="org.springframework.beans.factory.di.BeanFactoryDITest$Company"/>
+    <bean id="company4" autowire="constructor" class="org.springframework.beans.factory.di.BeanFactoryDITest$Company">
+        <constructor-arg index="0" ref="department"/>
+    </bean>
+    <bean id="company5" autowire="default" class="org.springframework.beans.factory.di.BeanFactoryDITest$Company"/>
+
+    <bean id="employee1" class="org.springframework.beans.factory.di.BeanFactoryDITest.Employee">
+        <property name="name" value="employee1"/>
+    </bean>
+    <bean id="employee2" class="org.springframework.beans.factory.di.BeanFactoryDITest.Employee">
+        <property name="name" value="employee2"/>
+    </bean>
+
+    <bean id="department" class="org.springframework.beans.factory.di.BeanFactoryDITest.Department">
+        <property name="name" value="department"/>
+    </bean>
+</beans>
