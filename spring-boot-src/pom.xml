@@ -20,6 +20,7 @@
         <module>validation</module>
         <module>cache</module>
         <module>webservice</module>
+        <module>jmx</module>
     </modules>
 
     <dependencies>
