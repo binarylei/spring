@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.github.binarylei.springboot.starter.autoconfigure.UserAutoConfiguration2
+com.github.binarylei.springboot.starter.autoconfigure.PersonAutoConfiguration

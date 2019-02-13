@@ -14,7 +14,7 @@
     <name>spring-boot</name>
     <description>Demo project for Spring Boot</description>
     <modules>
-        <module>demo</module>
+        <module>web</module>
         <module>servlet</module>
         <module>websocket</module>
         <module>validation</module>
