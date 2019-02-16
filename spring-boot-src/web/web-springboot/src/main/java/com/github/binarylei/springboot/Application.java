@@ -7,8 +7,12 @@ import org.springframework.boot.web.server.ErrorPageRegistrar;
 import org.springframework.boot.web.server.ErrorPageRegistry;
 import org.springframework.http.HttpStatus;
 
-@SpringBootApplication
+//@SpringBootApplication
 public class Application implements ErrorPageRegistrar {
+
+    public Application() {
+        System.out.println();
+    }
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);

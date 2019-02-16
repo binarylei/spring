@@ -1,4 +1,4 @@
-package com.github.binarylei.spring.web.controller;
+package com.github.binarylei.deploy.custom.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

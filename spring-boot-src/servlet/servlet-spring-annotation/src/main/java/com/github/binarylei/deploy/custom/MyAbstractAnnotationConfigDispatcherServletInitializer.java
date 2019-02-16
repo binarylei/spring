@@ -1,4 +1,4 @@
-package com.github.binarylei.spring;
+package com.github.binarylei.deploy.custom;
 
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
@@ -6,6 +6,8 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
 import javax.servlet.Filter;
 
 /**
+ * 实现了 WebApplicationInitializer
+ *
  * @author: leigang
  * @version: 2018-12-31
  */

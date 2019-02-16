@@ -1,4 +1,4 @@
-package com.github.binarylei.spring.web.controller;
+package com.github.binarylei.deploy.custom.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
