@@ -19,8 +19,12 @@ package org.springframework.core.annotation;
 import org.junit.Test;
 import org.springframework.core.annotation.AnnotationUtilsTests.MyRepeatable;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.lang.annotation.Annotation;
+import java.lang.reflect.Method;
+import java.util.Arrays;
 import java.util.Set;
 
 public class AnnotatedElementUtilsTests2 {
@@ -40,7 +44,20 @@ public class AnnotatedElementUtilsTests2 {
     }
 
     @Test
-    public void test3() {
+    @GetMapping("/GetMapping")
+    public void test3() throws Exception {
+        Method method = AnnotatedElementUtilsTests2.class.getDeclaredMethod("test3", null);
+        Set<GetMapping> getMappingsSet = AnnotatedElementUtils.getAllMergedAnnotations(method, GetMapping.class);
+        Set<RequestMapping> requestMappingSet = AnnotatedElementUtils.getAllMergedAnnotations(method, RequestMapping.class);
+        getMappingsSet.forEach((annotation) -> {
+            System.out.println(Arrays.toString(annotation.value()));
+        });
+
+        requestMappingSet.forEach((annotation) -> {
+            System.out.println(annotation.method());
+            System.out.println(Arrays.toString(annotation.value()));
+        });
+
         Set<Component> allMergedAnnotations = AnnotatedElementUtils.getAllMergedAnnotations(RepeatableClass2.class, Component.class);
         allMergedAnnotations.forEach(System.out::println);
     }
@@ -53,4 +70,5 @@ public class AnnotatedElementUtilsTests2 {
     @MyRepeatable("2")
     public class RepeatableClass {
     }
+
 }
