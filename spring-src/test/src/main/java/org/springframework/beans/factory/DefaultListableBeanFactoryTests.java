@@ -5,9 +5,9 @@ import org.junit.Test;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.beans.factory.support.PropertiesBeanDefinitionReader;
 import org.springframework.beans.factory.support.RootBeanDefinition;
-import org.springframework.beans.tests.sample.beans.ITestBean;
-import org.springframework.beans.tests.sample.beans.TestBean;
-import org.springframework.beans.tests.sample.beans.factory.DummyFactory;
+import org.springframework.tests.sample.beans.ITestBean;
+import org.springframework.tests.sample.beans.TestBean;
+import org.springframework.tests.sample.beans.factory.DummyFactory;
 import org.springframework.core.OverridingClassLoader;
 import org.springframework.core.ResolvableType;
 

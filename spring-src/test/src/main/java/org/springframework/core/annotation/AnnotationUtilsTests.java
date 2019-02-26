@@ -98,6 +98,7 @@ public class AnnotationUtilsTests {
 	}
 
 
+	// 方法上的插件
 	@Test
 	public void findMethodAnnotationOnLeaf() throws Exception {
 		Method m = Leaf.class.getMethod("annotatedOnLeaf");
@@ -106,6 +107,7 @@ public class AnnotationUtilsTests {
 		assertNotNull(findAnnotation(m, Order.class));
 	}
 
+	// 接口上的方法
 	// @since 4.2
 	@Test
 	public void findMethodAnnotationWithAnnotationOnMethodInInterface() throws Exception {
@@ -118,6 +120,7 @@ public class AnnotationUtilsTests {
 		assertNotNull(findAnnotation(m, Order.class));
 	}
 
+	// 方法上的元注解
 	// @since 4.2
 	@Test
 	public void findMethodAnnotationWithMetaAnnotationOnLeaf() throws Exception {
@@ -127,6 +130,7 @@ public class AnnotationUtilsTests {
 		assertNotNull(findAnnotation(m, Order.class));
 	}
 
+	// 方法上元注解的元注解
 	// @since 4.2
 	@Test
 	public void findMethodAnnotationWithMetaMetaAnnotationOnLeaf() throws Exception {
@@ -136,6 +140,7 @@ public class AnnotationUtilsTests {
 		assertNotNull(findAnnotation(m, Component.class));
 	}
 
+	// 父类中方法的注解
 	@Test
 	public void findMethodAnnotationOnRoot() throws Exception {
 		Method m = Leaf.class.getMethod("annotatedOnRoot");
@@ -144,6 +149,7 @@ public class AnnotationUtilsTests {
 		assertNotNull(findAnnotation(m, Order.class));
 	}
 
+	// 父类中方法的元注解
 	// @since 4.2
 	@Test
 	public void findMethodAnnotationWithMetaAnnotationOnRoot() throws Exception {
@@ -153,6 +159,7 @@ public class AnnotationUtilsTests {
 		assertNotNull(findAnnotation(m, Order.class));
 	}
 
+	// 父类中重载方法的注解
 	@Test
 	public void findMethodAnnotationOnRootButOverridden() throws Exception {
 		Method m = Leaf.class.getMethod("overrideWithoutNewAnnotation");
@@ -161,12 +168,14 @@ public class AnnotationUtilsTests {
 		assertNotNull(findAnnotation(m, Order.class));
 	}
 
+	// 不存在注解
 	@Test
 	public void findMethodAnnotationNotAnnotated() throws Exception {
 		Method m = Leaf.class.getMethod("notAnnotated");
 		assertNull(findAnnotation(m, Order.class));
 	}
 
+	// 桥接方法的注解
 	@Test
 	public void findMethodAnnotationOnBridgeMethod() throws Exception {
 		Method bridgeMethod = SimpleFoo.class.getMethod("something", Object.class);
@@ -194,6 +203,7 @@ public class AnnotationUtilsTests {
 		assertNotNull(findAnnotation(bridgeMethod, Transactional.class));
 	}
 
+	// 桥接方法的注解
 	@Test
 	public void findMethodAnnotationOnBridgedMethod() throws Exception {
 		Method bridgedMethod = SimpleFoo.class.getMethod("something", String.class);
@@ -208,6 +218,7 @@ public class AnnotationUtilsTests {
 		assertNotNull(findAnnotation(bridgedMethod, Transactional.class));
 	}
 
+	// 接口上方法的注解
 	@Test
 	public void findMethodAnnotationFromInterface() throws Exception {
 		Method method = ImplementsInterfaceWithAnnotatedMethod.class.getMethod("foo");
@@ -215,6 +226,7 @@ public class AnnotationUtilsTests {
 		assertNotNull(order);
 	}
 
+	// 接口上重载方法的注解
 	@Test  // SPR-16060
 	public void findMethodAnnotationFromGenericInterface() throws Exception {
 		Method method = ImplementsInterfaceWithGenericAnnotatedMethod.class.getMethod("foo", String.class);
@@ -222,6 +234,7 @@ public class AnnotationUtilsTests {
 		assertNotNull(order);
 	}
 
+	// 父类上重载方法的注解
 	@Test  // SPR-17146
 	public void findMethodAnnotationFromGenericSuperclass() throws Exception {
 		Method method = ExtendsBaseClassWithGenericAnnotatedMethod.class.getMethod("foo", String.class);
@@ -229,6 +242,7 @@ public class AnnotationUtilsTests {
 		assertNotNull(order);
 	}
 
+	// 父类的接口上重载方法的注解
 	@Test
 	public void findMethodAnnotationFromInterfaceOnSuper() throws Exception {
 		Method method = SubOfImplementsInterfaceWithAnnotatedMethod.class.getMethod("foo");
@@ -236,6 +250,7 @@ public class AnnotationUtilsTests {
 		assertNotNull(order);
 	}
 
+	// 父类的父类的接口上重载方法的注解
 	@Test
 	public void findMethodAnnotationFromInterfaceWhenSuperDoesNotImplementMethod() throws Exception {
 		Method method = SubOfAbstractImplementsInterfaceWithAnnotatedMethod.class.getMethod("foo");
@@ -243,6 +258,7 @@ public class AnnotationUtilsTests {
 		assertNotNull(order);
 	}
 
+	// 本地元注解优先于接口上的注解
 	// @since 4.1.2
 	@Test
 	public void findClassAnnotationFavorsMoreLocallyDeclaredComposedAnnotationsOverAnnotationsOnInterfaces() {
@@ -251,6 +267,7 @@ public class AnnotationUtilsTests {
 		assertEquals("meta2", component.value());
 	}
 
+	// 本类优先于其接口
 	// @since 4.0.3
 	@Test
 	public void findClassAnnotationFavorsMoreLocallyDeclaredComposedAnnotationsOverInheritedAnnotations() {
@@ -267,6 +284,7 @@ public class AnnotationUtilsTests {
 		assertEquals("meta2", component.value());
 	}
 
+	// 元注解的元注解
 	@Test
 	public void findClassAnnotationOnMetaMetaAnnotatedClass() {
 		Component component = findAnnotation(MetaMetaAnnotatedClass.class, Component.class);
@@ -274,6 +292,7 @@ public class AnnotationUtilsTests {
 		assertEquals("meta2", component.value());
 	}
 
+	// 三级元注解
 	@Test
 	public void findClassAnnotationOnMetaMetaMetaAnnotatedClass() {
 		Component component = findAnnotation(MetaMetaMetaAnnotatedClass.class, Component.class);
@@ -281,6 +300,7 @@ public class AnnotationUtilsTests {
 		assertEquals("meta2", component.value());
 	}
 
+	// 没有返回 null
 	@Test
 	public void findClassAnnotationOnAnnotatedClassWithMissingTargetMetaAnnotation() {
 		// TransactionalClass is NOT annotated or meta-annotated with @Component
@@ -288,12 +308,14 @@ public class AnnotationUtilsTests {
 		assertNull("Should not find @Component on TransactionalClass", component);
 	}
 
+	// 循环的元注解
 	@Test
 	public void findClassAnnotationOnMetaCycleAnnotatedClassWithMissingTargetMetaAnnotation() {
 		Component component = findAnnotation(MetaCycleAnnotatedClass.class, Component.class);
 		assertNull("Should not find @Component on MetaCycleAnnotatedClass", component);
 	}
 
+	// 接口上的注解
 	// @since 4.2
 	@Test
 	public void findClassAnnotationOnInheritedAnnotationInterface() {
@@ -301,6 +323,7 @@ public class AnnotationUtilsTests {
 		assertNotNull("Should find @Transactional on InheritedAnnotationInterface", tx);
 	}
 
+	// 二级接口上的注解
 	// @since 4.2
 	@Test
 	public void findClassAnnotationOnSubInheritedAnnotationInterface() {
@@ -758,6 +781,8 @@ public class AnnotationUtilsTests {
 		assertThat(set.size(), is(0));
 	}
 
+	// 用于获取当前 attribute 覆盖了元注解中的那个属性
+	// 不存在的元注解 @Component
 	@Test
 	public void getAttributeOverrideNameFromWrongTargetAnnotation() throws Exception {
 		Method attribute = AliasedComposedContextConfig.class.getDeclaredMethod("xmlConfigFile");
@@ -765,6 +790,7 @@ public class AnnotationUtilsTests {
 				getAttributeOverrideName(attribute, Component.class), is(nullValue()));
 	}
 
+	// 没有 @AliasFor 注解
 	@Test
 	public void getAttributeOverrideNameForNonAliasedAttribute() throws Exception {
 		Method nonAliasedAttribute = ImplicitAliasesContextConfig.class.getDeclaredMethod("nonAliasedAttribute");

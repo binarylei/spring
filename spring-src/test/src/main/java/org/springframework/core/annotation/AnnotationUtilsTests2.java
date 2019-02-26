@@ -1,12 +1,15 @@
 package org.springframework.core.annotation;
 
 import org.junit.Test;
+import org.springframework.cglib.core.ReflectUtils;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.lang.annotation.ElementType;
 import java.lang.annotation.Inherited;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 import java.lang.reflect.Method;
 import java.util.List;
 import java.util.Map;
@@ -48,13 +51,37 @@ public class AnnotationUtilsTests2 {
                 GroovyOrXmlTestConfig.class.getDeclaredMethod("groovy"), ContextConfiguration.class));
     }
 
+    @Retention(RetentionPolicy.RUNTIME)
+    public @interface A {
+        @AliasFor("b")
+        String a() default "";
 
+        @AliasFor("a")
+        String b() default "";
+
+        @AliasFor("b")
+        String c() default "";
+    }
+
+    @Retention(RetentionPolicy.RUNTIME)
+    public @interface B {
+        @AliasFor(attribute = "b")
+        String a() default "";
+
+        @AliasFor("a")
+        String b() default "";
+    }
+
+
+    // b 和 c 是别名，
+    @A(c = "c")
     @Test
     public void test() throws NoSuchMethodException {
-        boolean equals = GroovyOrXmlTestConfig.class.getDeclaredMethod("groovy").equals(
-                GroovyOrXmlTestConfig.class.getDeclaredMethod("groovy"));
-        System.out.println(equals);
-    }
+        Object a = ReflectUtils.findDeclaredMethod(A.class, "a", null).getDefaultValue();
+
+        Method method = ReflectUtils.findDeclaredMethod(this.getClass(), "test", null);
+        A annotation = AnnotationUtils.getAnnotation(method, A.class);
+            }
 
     @ContextConfiguration
     @Retention(RetentionPolicy.RUNTIME)

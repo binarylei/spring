@@ -47,19 +47,8 @@ public class AnnotatedElementUtilsTests2 {
     @GetMapping("/GetMapping")
     public void test3() throws Exception {
         Method method = AnnotatedElementUtilsTests2.class.getDeclaredMethod("test3", null);
-        Set<GetMapping> getMappingsSet = AnnotatedElementUtils.getAllMergedAnnotations(method, GetMapping.class);
-        Set<RequestMapping> requestMappingSet = AnnotatedElementUtils.getAllMergedAnnotations(method, RequestMapping.class);
-        getMappingsSet.forEach((annotation) -> {
-            System.out.println(Arrays.toString(annotation.value()));
-        });
 
-        requestMappingSet.forEach((annotation) -> {
-            System.out.println(annotation.method());
-            System.out.println(Arrays.toString(annotation.value()));
-        });
-
-        Set<Component> allMergedAnnotations = AnnotatedElementUtils.getAllMergedAnnotations(RepeatableClass2.class, Component.class);
-        allMergedAnnotations.forEach(System.out::println);
+        GetMapping getMapping = AnnotatedElementUtils.findMergedAnnotation(method, GetMapping.class);
     }
 
     @Component

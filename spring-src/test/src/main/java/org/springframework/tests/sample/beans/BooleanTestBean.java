@@ -1,5 +1,5 @@
 /*
- * Copyright 2002-2009 the original author or authors.
+ * Copyright 2002-2018 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,19 +14,33 @@
  * limitations under the License.
  */
 
-package org.springframework.core.type;
+package org.springframework.tests.sample.beans;
 
-import java.lang.annotation.Documented;
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+/**
+ * @author Juergen Hoeller
+ * @author Chris Beams
+ * @since 10.06.2003
+ */
+public class BooleanTestBean {
 
-@Target({ElementType.TYPE, ElementType.METHOD})
-@Retention(RetentionPolicy.RUNTIME)
-@Documented
-public @interface Scope {
+	private boolean bool1;
 
-	String value() default "singleton";
+	private Boolean bool2;
+
+	public boolean isBool1() {
+		return bool1;
+	}
+
+	public void setBool1(boolean bool1) {
+		this.bool1 = bool1;
+	}
+
+	public Boolean getBool2() {
+		return bool2;
+	}
+
+	public void setBool2(Boolean bool2) {
+		this.bool2 = bool2;
+	}
 
 }

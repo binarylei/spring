@@ -1,5 +1,5 @@
 /*
- * Copyright 2002-2009 the original author or authors.
+ * Copyright 2002-2013 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,19 +14,26 @@
  * limitations under the License.
  */
 
-package org.springframework.core.type;
+package example.scannable;
 
-import java.lang.annotation.Documented;
+import org.springframework.stereotype.Component;
+
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-@Target({ElementType.TYPE, ElementType.METHOD})
+/**
+ * @author Juergen Hoeller
+ */
+@Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
-@Documented
-public @interface Scope {
+@Component
+public @interface CustomAspectStereotype {
 
-	String value() default "singleton";
+	/**
+	 * Not a plain String value - needs to be ignored during name detection.
+	 */
+	String[] value() default {};
 
 }

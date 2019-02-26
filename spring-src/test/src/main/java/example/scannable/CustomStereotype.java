@@ -14,19 +14,25 @@
  * limitations under the License.
  */
 
-package org.springframework.core.type;
+package example.scannable;
 
-import java.lang.annotation.Documented;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Service;
+
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-@Target({ElementType.TYPE, ElementType.METHOD})
+/**
+ * @author Juergen Hoeller
+ */
+@Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
-@Documented
-public @interface Scope {
+@Service
+@Scope("prototype")
+public @interface CustomStereotype {
 
-	String value() default "singleton";
+	String value() default "thoreau";
 
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright 2002-2009 the original author or authors.
+ * Copyright 2002-2005 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,19 +14,19 @@
  * limitations under the License.
  */
 
-package org.springframework.core.type;
+package org.springframework.tests.sample.beans;
 
-import java.lang.annotation.Documented;
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
 
-@Target({ElementType.TYPE, ElementType.METHOD})
-@Retention(RetentionPolicy.RUNTIME)
-@Documented
-public @interface Scope {
+/**
+ * @author Juergen Hoeller
+ * @since 15.03.2005
+ */
+public class CountingTestBean extends TestBean {
 
-	String value() default "singleton";
+	public static int count = 0;
+
+	public CountingTestBean() {
+		count++;
+	}
 
 }
