@@ -15,6 +15,10 @@
         <module>eureka-server</module>
         <module>user-provider</module>
         <module>user-consumer</module>
+        <module>user-consumer-ribbon</module>
+        <module>user-provider2</module>
+        <module>eureka-server-ha</module>
+        <module>user-consumer-feign</module>
     </modules>
 
 

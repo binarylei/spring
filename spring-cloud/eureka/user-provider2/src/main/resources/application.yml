@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: user-provider2
+server:
+  port: 10011
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:10001/eureka

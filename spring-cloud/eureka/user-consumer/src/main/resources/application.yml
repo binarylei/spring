@@ -2,7 +2,7 @@ spring:
   application:
     name: user-consumer
 server:
-  port: 10003
+  port: 10201
 eureka:
   client:
     service-url:
