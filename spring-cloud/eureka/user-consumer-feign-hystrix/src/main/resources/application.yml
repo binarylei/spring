@@ -1,6 +1,6 @@
 spring:
   application:
-    name: user-consumer-feign
+    name: user-consumer-feign-hystrix
 server:
   port: 10303
 eureka:
@@ -9,7 +9,6 @@ eureka:
       defaultZone: http://peer1:10011/eureka
   instance:
     prefer-ip-address: true     # 在应用中显示 IP
-# 配置日志
-logging:
-  level:
-  com.github.binarylei.springcloud.feign.service.FeignClientService: debug
+feign:
+  hystrix:
+    enabled: true

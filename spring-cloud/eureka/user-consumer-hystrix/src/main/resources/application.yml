@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: user-consumer-hystrix
+server:
+  port: 10220
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:10011/eureka

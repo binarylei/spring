@@ -24,7 +24,7 @@ public class ProviderUserController {
 
     @GetMapping("url-info")
     public String info() {
-        InstanceInfo instance = eurekaClient.getNextServerFromEureka("EUREKA-CLIENT", false);
+        InstanceInfo instance = eurekaClient.getNextServerFromEureka("user-provider", false);
         return instance.getHomePageUrl();
     }
 }

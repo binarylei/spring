@@ -19,6 +19,9 @@
         <module>user-provider2</module>
         <module>eureka-server-ha</module>
         <module>user-consumer-feign</module>
+        <module>user-consumer-hystrix</module>
+        <module>user-consumer-feign-hystrix</module>
+        <module>api-gateway-zuul</module>
     </modules>
 
 

@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: api-gateway-zuul
+server:
+  port: 10401
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:10001/eureka
+  instance:
+    prefer-ip-address: true     # 在应用中显示 IP
+spring.security:
+  user:
+    name: user
+    password: 123
+  basic:
+    enabled: true
+zuul:
+  routes:
+    user-provider: /abc/**         # 路由映射：指定的服务路径为 /abc/**
+  # zuul 默认会理 eureka 上所有注册的服务，如果不需要代理则需要禁用，多个用逗号分隔即可
+  ignored-services: user-provider1
