@@ -1,0 +1,21 @@
+server:
+  port: 10500
+spring:
+  application:
+    name: spring-cloud-config
+
+  # spring cloud 搜索路径和密码
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitee.com/binarylei/spring-cloud-config
+          search-paths:
+            # 以 app1 开头的转到 app1 目录
+            # eg: http://localhost:10500/app1-dev.yml 查找的是 app1 目录下的 app1-dev.yml 文件
+            - app1
+            - app2
+          clone-on-start: true      # 启动时就加载
+#          username: binarylei      # 写数据需要密码
+#          password: lg023081
+

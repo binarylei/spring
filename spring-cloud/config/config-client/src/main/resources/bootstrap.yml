@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: config-client
+  cloud:
+    config:
+      uri: http://localhost:10500
+      profile: test   # {profile} 默认为 default
+      label: master   # {label} git 时默认为 master 分支
+      name: user      # {application} 配置关联的应用名称，如不配置使用 spring.application.name

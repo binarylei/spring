@@ -9,10 +9,11 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>eureka</artifactId>
+    <artifactId>config</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>eureka-server</module>
+        <module>config-client</module>
+        <module>config-server</module>
     </modules>
 
 

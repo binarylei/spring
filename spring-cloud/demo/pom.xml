@@ -13,6 +13,18 @@
     <packaging>pom</packaging>
     <modules>
         <module>eureka-server</module>
+        <module>user-provider</module>
+        <module>user-consumer</module>
+        <module>user-consumer-ribbon</module>
+        <module>user-provider2</module>
+        <module>eureka-server-ha</module>
+        <module>user-consumer-feign</module>
+        <module>user-consumer-hystrix</module>
+        <module>user-consumer-feign-hystrix</module>
+        <module>api-gateway-zuul</module>
+        <module>springcloud-config-server</module>
+        <module>springcloud-config-client</module>
+        <module>springcloud-config-server-eureka</module>
     </modules>
 
 
