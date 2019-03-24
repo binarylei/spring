@@ -10,7 +10,9 @@ spring:
           uri: https://gitee.com/binarylei/config-repo
   profiles:
     active: eureka
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:10001/eureka
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

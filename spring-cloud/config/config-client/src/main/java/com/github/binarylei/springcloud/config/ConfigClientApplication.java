@@ -14,7 +14,7 @@ import java.util.Set;
  * @version 2019-03-23
  */
 @SpringBootApplication
-@EnableScheduling
+//@EnableScheduling
 public class ConfigClientApplication {
 
     public static void main(String[] args) {
@@ -24,6 +24,7 @@ public class ConfigClientApplication {
     @Autowired
     private ContextRefresher contextRefresher;
 
+    // 定时从 config server 中刷新配置文件
     @Scheduled(fixedRate = 1000L)
     public void refresh() {
         Set<String> keys = contextRefresher.refresh();

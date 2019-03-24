@@ -1,0 +1,15 @@
+spring:
+  cloud:
+    config:
+      profile: test   # {profile} 默认为 default
+      label: master   # {label} git 时默认为 master 分支
+      name: user      # {application} 配置关联的应用名称，如不配置使用 spring.application.name
+      discovery:
+        enabled: true             # 开启 eureka 服务发现
+        service-id: config-server # config server 在 eureka 中注册的名称
+      #username: user
+      #password: 123
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:10001/eureka

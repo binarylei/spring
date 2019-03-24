@@ -8,14 +8,11 @@
         <version>1.0.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
+    <artifactId>robbon</artifactId>
 
-    <artifactId>config</artifactId>
-    <packaging>pom</packaging>
     <modules>
-        <module>config-client</module>
-        <module>config-server</module>
-        <module>config-server-eureka</module>
-        <module>config-client-eureka</module>
+        <module>user-consumer-ribbon</module>
+        <module>user-consumer-ribbon-eureka</module>
     </modules>
 
 

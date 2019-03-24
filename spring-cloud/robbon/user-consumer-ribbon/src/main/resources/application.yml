@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: user-consumer-ribbon
+server:
+  port: 10240
+user-provider:
+  ribbon:
+    listOfServers: http://localhost:10100
+# 通过配置文件的方式指定服务的负载均衡算法
+#user-provider:
+#  ribbon:
+#    NFLoadBalancerRuleClassName:com.netflix.loadbalancer.RandomRule
+
+# 禁用 ribbon，禁用后就需要自己实现负载均衡
+#ribbon:
+#  eureka:
+#    enabled: false

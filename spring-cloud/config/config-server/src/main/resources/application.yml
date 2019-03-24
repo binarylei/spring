@@ -8,3 +8,11 @@ spring:
       server:
         git:
           uri: https://gitee.com/binarylei/config-repo
+  profiles:
+    active: test
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
