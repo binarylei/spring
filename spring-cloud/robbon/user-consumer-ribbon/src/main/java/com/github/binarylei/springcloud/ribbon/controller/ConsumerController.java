@@ -24,7 +24,7 @@ public class ConsumerController {
         return restTemplate.getForObject("http://localhost:10201/user/2", String.class);
     }
 
-    // ??? 不生效
+    // user-provider.ribbon.listOfServers=
     @GetMapping("ribbon")
     public String ribbon() {
         return restTemplate.getForObject("http://user-provider/user/2", String.class);

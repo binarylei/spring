@@ -17,12 +17,9 @@
 
 	<modules>
 		<!--<module>demo</module>-->
-		<module>user-provider</module>
-		<module>user-consumer</module>
 		<module>robbon</module>
 		<module>config</module>
 		<module>eureka</module>
-        <module>robbon</module>
     </modules>
 
 	<properties>

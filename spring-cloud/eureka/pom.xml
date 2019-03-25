@@ -8,12 +8,14 @@
         <version>1.0.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-
     <artifactId>eureka</artifactId>
     <packaging>pom</packaging>
+
     <modules>
         <module>eureka-server</module>
         <module>eureka-server-ha</module>
+        <module>user-provider-eureka-client</module>
+        <module>user-consumer-eureka-client</module>
     </modules>
 
 
