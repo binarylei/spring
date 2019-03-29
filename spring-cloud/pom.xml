@@ -17,11 +17,13 @@
 
 	<modules>
 		<!--<module>demo</module>-->
-		<module>robbon</module>
+		<module>ribbon</module>
 		<module>config</module>
 		<module>eureka</module>
         <module>hystrix</module>
-    </modules>
+        <module>feign</module>
+		<module>zuul</module>
+	</modules>
 
 	<properties>
 		<java.version>1.8</java.version>
