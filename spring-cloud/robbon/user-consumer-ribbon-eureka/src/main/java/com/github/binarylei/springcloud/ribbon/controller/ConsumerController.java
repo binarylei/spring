@@ -19,6 +19,9 @@ public class ConsumerController {
     private RestTemplate restTemplate = new RestTemplate();
 
     @Autowired
+    private RestTemplate restTemplateRiboon;
+
+    @Autowired
     private EurekaClient eurekaClient;
 
     @Autowired
@@ -36,12 +39,6 @@ public class ConsumerController {
         return restTemplate.getForObject(homePageUrl + "/user/2", String.class);
     }
 
-    // ??? 不生效
-    @GetMapping("ribbon")
-    public String ribbon() {
-        return restTemplate.getForObject("http://user-provider/user/2", String.class);
-    }
-
     @GetMapping("ribbon/balancer")
     public String ribbonBalancer() {
         ServiceInstance instance = loadBalancerClient.choose("user-provider");
@@ -52,6 +49,12 @@ public class ConsumerController {
     public void test() {
         ServiceInstance instance = loadBalancerClient.choose("user-provider");
         System.err.println("user-provider: " + instance.getUri());
+    }
+
+    // 使用 @LoadBalanced
+    @GetMapping("ribbon/restTemplate")
+    public String restTemplateRiboon() {
+        return restTemplateRiboon.getForObject("http://user-provider/user/2", String.class);
     }
 
 }

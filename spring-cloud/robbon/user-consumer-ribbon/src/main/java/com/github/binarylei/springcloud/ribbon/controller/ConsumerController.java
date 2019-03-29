@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import java.io.IOException;
+
 /**
  * @author leigang
  * @version 2019-03-20
@@ -34,6 +36,13 @@ public class ConsumerController {
     public String ribbonBalancer() {
         ServiceInstance instance = loadBalancerClient.choose("user-provider");
         return restTemplate.getForObject(instance.getUri() + "/user/2", String.class);
+    }
+
+    @GetMapping("ribbon/balancer2")
+    public String ribbonBalancer2() throws IOException {
+        return loadBalancerClient.execute("user-provider", instance -> {
+            return restTemplate.getForObject(instance.getUri() + "/user/2", String.class);
+        });
     }
 
     @GetMapping("test")
