@@ -1,0 +1,14 @@
+# 禁用 eureka
+zuul:
+  routes:
+    myid1:                      # 全局唯一即可，自己指定
+      path: /abcd/**            # 映射路径
+      serviceId: user-provider  # 映射服务
+ribbon:
+  eureka:
+    enabled: false
+
+user-provider:
+  ribbon:
+    # user-provider 负载均衡配置
+    listOfServers: http://localhost:10101,http://localhost:10102

@@ -1,0 +1,5 @@
+zuul:
+  routes:
+    user-provider: /abc/**         # 路由映射：指定的服务路径为 /abc/**
+  # zuul 默认会代理 eureka 上所有注册的服务，如果不需要代理则需要禁用，多个用逗号分隔即可
+  ignored-services: user-provider1
