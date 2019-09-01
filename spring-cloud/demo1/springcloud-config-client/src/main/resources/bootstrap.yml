@@ -1,9 +1,0 @@
-spring:
-  application:
-    name: foobar
-  cloud:
-    config:
-      uri: http://localhost:10500
-      profile: dev
-      label: master   # git 时默认为 master 分支
-      name: user      # 配置关联的应用名称 {application}
