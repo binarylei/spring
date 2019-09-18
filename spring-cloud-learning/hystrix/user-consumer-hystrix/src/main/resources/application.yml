@@ -2,7 +2,7 @@ spring:
   application:
     name: user-consumer-hystrix
 server:
-  port: 10220
+  port: 0
 #eureka:
 #  client:
 #    service-url:
