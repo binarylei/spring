@@ -1,4 +1,4 @@
-package com.binarylei.feign;
+package com.binarylei.feign.helloword;
 
 import feign.Feign;
 import feign.gson.GsonDecoder;
