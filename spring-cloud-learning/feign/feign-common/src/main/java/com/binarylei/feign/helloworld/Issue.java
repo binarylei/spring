@@ -1,4 +1,4 @@
-package com.binarylei.feign.helloword;
+package com.binarylei.feign.helloworld;
 
 import java.util.List;
 

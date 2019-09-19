@@ -1,8 +1,5 @@
 package com.binarylei.jaxrs.feign;
 
-import com.binarylei.feign.helloword.Contributor;
-import java.util.List;
-
 /**
  * @author binarylei
  * @version 2019-09-19
