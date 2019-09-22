@@ -12,6 +12,8 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>user-consumer-hystrix</module>
+        <module>hystrix-sample</module>
+        <module>hystrix-examples</module>
+        <module>histrix-dashboard</module>
     </modules>
 </project>
