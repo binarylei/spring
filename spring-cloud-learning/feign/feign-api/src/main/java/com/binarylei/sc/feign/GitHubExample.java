@@ -1,4 +1,4 @@
-package com.binarylei.feign.helloworld;
+package com.binarylei.sc.feign;
 
 import feign.Feign;
 import feign.Logger;
