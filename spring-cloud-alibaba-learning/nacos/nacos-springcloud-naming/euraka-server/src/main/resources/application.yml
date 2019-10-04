@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: eureka-server
+server:
+  port: 10000
+  # 因为当前的 eureka 是单机的，需要一些配置
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://localhost:10001/eureka
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

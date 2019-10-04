@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.7.RELEASE</version>
+        <relativePath/>
+    </parent>
+    <groupId>com.binarylei.sentinel</groupId>
+    <artifactId>sentinel-sample-parent</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0.0</version>
+
+    <properties>
+        <dubbo.version>2.7.3</dubbo.version>
+        <sentinel.version>1.6.3</sentinel.version>
+
+        <java.version>1.8</java.version>
+    </properties>
+
+    <modules>
+        <module>sentinel-sample-dependencies</module>
+        <module>sentinel-sample-dubbo</module>
+        <!--<module>sentinel-cluster</module>-->
+        <module>sentinel-sample-api</module>
+        <module>hystrix-sample</module>
+        <module>sentinel-sample-cluster</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.binarylei.sentinel</groupId>
+                <artifactId>sentinel-sample-dependencies</artifactId>
+                <version>${project.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>
