@@ -5,7 +5,7 @@ server:
   port: 10011
 eureka:
   instance:
-    hostname: peer1
+    hostname: localhost
   client:
     service-url:
-      defaultZone: http://peer2:10012/eureka,http://peer3:10013/eureka
+      defaultZone: http://localhost:10012/eureka,http://localhost:10013/eureka

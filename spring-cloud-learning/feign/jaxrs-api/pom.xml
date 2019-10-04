@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>feign</artifactId>
-        <groupId>com.github.binarylei.springcloud</groupId>
+        <groupId>binarylei.sc</groupId>
         <version>1.0.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -33,9 +33,13 @@
 
         <!--测试数据-->
         <dependency>
-            <groupId>com.github.binarylei.springcloud</groupId>
-            <artifactId>feign-common</artifactId>
-            <version>${project.version}</version>
+            <groupId>io.github.openfeign</groupId>
+            <artifactId>feign-jaxrs</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.github.openfeign</groupId>
+            <artifactId>feign-gson</artifactId>
+            <version>10.4.0</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
