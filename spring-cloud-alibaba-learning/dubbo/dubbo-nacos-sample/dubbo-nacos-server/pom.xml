@@ -13,7 +13,7 @@
     <dependencies>
         <dependency>
             <groupId>binarylei.dubbo</groupId>
-            <artifactId>dubbo-sdk-sample</artifactId>
+            <artifactId>dubbo-api-sample</artifactId>
             <version>${project.version}</version>
         </dependency>
 

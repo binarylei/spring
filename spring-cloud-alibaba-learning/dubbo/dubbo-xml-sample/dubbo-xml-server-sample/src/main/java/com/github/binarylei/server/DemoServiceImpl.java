@@ -1,6 +1,6 @@
 package com.github.binarylei.server;
 
-import com.github.binarylei.dubbo.demo.api.EchoService;
+import binarylei.dubbo.api.EchoService;
 
 /**
  * @author: leigang

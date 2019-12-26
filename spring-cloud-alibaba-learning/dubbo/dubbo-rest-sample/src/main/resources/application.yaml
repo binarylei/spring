@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: spring-boot-alibaba-dubbo-provider
+dubbo:
+  scan:
+    base-packages: binarylei.dubbo.rest.service
+  protocols:
+    dubbo:
+      name: dubbo
+      port: -1
+    rest:
+      name: rest
+      port: 9090
+      server: netty
+  registry:
+    address: nacos://192.168.139.101:8848

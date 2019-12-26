@@ -21,9 +21,10 @@
         <module>rpc</module>
         <module>rpc-netty</module>
 
-        <module>dubbo-sdk-sample</module>
+        <module>dubbo-api-sample</module>
         <module>dubbo-xml-sample</module>
         <module>dubbo-nacos-sample</module>
+        <module>dubbo-rest-sample</module>
     </modules>
 
     <properties>
